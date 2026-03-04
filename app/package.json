@@ -7,6 +7,8 @@
     "dev": "vite",
     "start": "nohup vite --host > vite.log 2>&1 &",
     "build": "tsc -b && vite build",
+    "serve": "vite preview --host",
+    "start:prod": "npm run build && nohup npm run serve > vite.log 2>&1 &",
     "lint": "eslint .",
     "preview": "vite preview"
   },
