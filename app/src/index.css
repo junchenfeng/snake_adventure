@@ -1,0 +1,223 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Orbitron:wght@400;700&family=ZCOOL+KuaiLe&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 230 35% 14%;
+    --foreground: 0 0% 98%;
+    --card: 220 43% 16%;
+    --card-foreground: 0 0% 98%;
+    --popover: 220 43% 16%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 350 80% 59%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 217 71% 22%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 220 43% 20%;
+    --muted-foreground: 220 10% 60%;
+    --accent: 43 96% 56%;
+    --accent-foreground: 0 0% 0%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 217 71% 22%;
+    --input: 217 71% 22%;
+    --ring: 350 80% 59%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Noto Sans SC', sans-serif;
+    overflow-x: hidden;
+  }
+}
+
+/* 像素风格 */
+.pixel-art {
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
+}
+
+/* 发光效果 */
+.glow-red {
+  box-shadow: 0 0 10px #ef4444, 0 0 20px #ef4444, 0 0 30px #ef4444;
+}
+
+.glow-green {
+  box-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e, 0 0 30px #22c55e;
+}
+
+.glow-blue {
+  box-shadow: 0 0 10px #3b82f6, 0 0 20px #3b82f6, 0 0 30px #3b82f6;
+}
+
+.glow-gold {
+  box-shadow: 0 0 10px #fbbf24, 0 0 20px #fbbf24, 0 0 30px #fbbf24;
+}
+
+/* 闪烁动画 */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+.animate-blink {
+  animation: blink 1s ease-in-out infinite;
+}
+
+/* 脉冲动画 */
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 5px currentColor;
+  }
+  50% {
+    box-shadow: 0 0 20px currentColor, 0 0 30px currentColor;
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+/* 浮动动画 */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-float {
+  animation: float 2s ease-in-out infinite;
+}
+
+/* 白屏闪烁 */
+@keyframes whiteFlash {
+  0% { opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+/* 受伤闪烁 */
+@keyframes damage-flash {
+  0%, 100% { background-color: transparent; }
+  50% { background-color: rgba(255, 255, 255, 0.8); }
+}
+
+.animate-damage {
+  animation: damage-flash 0.3s ease-in-out;
+}
+
+/* 像素边框 */
+.pixel-border {
+  box-shadow: 
+    -4px 0 0 0 currentColor,
+    4px 0 0 0 currentColor,
+    0 -4px 0 0 currentColor,
+    0 4px 0 0 currentColor;
+}
+
+/* 游戏画布样式 */
+.game-canvas {
+  cursor: crosshair;
+  user-select: none;
+}
+
+/* 子弹时间效果 */
+.bullet-time {
+  filter: grayscale(0.5) brightness(0.7);
+}
+
+/* 文字发光 */
+.text-glow {
+  text-shadow: 0 0 10px currentColor, 0 0 20px currentColor;
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #16213e;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #0f3460;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e94560;
+}
+
+/* 选择文字样式 */
+::selection {
+  background: #e94560;
+  color: white;
+}
+
+/* 按钮悬停效果 */
+.btn-pixel {
+  position: relative;
+  transition: all 0.1s;
+}
+
+.btn-pixel:active {
+  transform: translateY(2px);
+}
+
+/* 响应式字体 */
+@media (max-width: 768px) {
+  html {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 12px;
+  }
+}
+
+/* 禁用文本选择 */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* 性能优化 */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* 字体类 */
+.font-display {
+  font-family: 'ZCOOL KuaiLe', cursive;
+}
+
+.font-tech {
+  font-family: 'Orbitron', sans-serif;
+}
+
+.font-body {
+  font-family: 'Noto Sans SC', sans-serif;
+}
